@@ -1,0 +1,11 @@
+services:
+  crypto_bot:
+    build: .
+    container_name: crypto_bot
+    env_file: 
+      - .env
+    volumes:
+      - ./bot_state.json:/app/bot_state.json
+      - ./bot.log:/app/bot.log
+      - ./prompt_instructions.txt:/app/prompt_instructions.txt
+    restart: "no"
