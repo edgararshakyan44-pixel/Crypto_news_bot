@@ -8,4 +8,6 @@ services:
       - ./bot_state.json:/app/bot_state.json
       - ./bot.log:/app/bot.log
       - ./prompt_instructions.txt:/app/prompt_instructions.txt
-    restart: "no"
+    restart: always
+    command: >
+      sh -c "while true; do python3 crypto_bot.py; echo 'Sleeping 2h...'; sleep 7200; done"
